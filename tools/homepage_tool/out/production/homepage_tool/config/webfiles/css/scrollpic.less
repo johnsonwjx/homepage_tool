@@ -1,0 +1,56 @@
+@charset "utf-8";
+// 滚动图片
+
+#picBox {
+  width: 1000px;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto 11px auto;
+
+  ul#show_pic {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    height: 290px;
+    width: 4000px;
+    position: absolute;
+
+    li {
+      float: left;
+      height: 290px;
+
+      img {
+        display: block;
+      }
+    }
+  }
+}
+
+#icon_num {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: url(../images/btnbox.png) no-repeat;
+  width: 133px;
+  height: 27px;
+  padding: 9px 0 0 59px;
+
+  li {
+    float: left;
+    background: url(../images/pic_btn.png) no-repeat -23px 0;
+    width: 23px;
+    height: 23px;
+    list-style: none;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    padding: 0;
+    margin: 0 5px 0 0;
+  }
+
+  li:hover, li.active {
+    background: url(../images/pic_btn.png) no-repeat 0 0;
+    color: #4c83cf;
+  }
+}

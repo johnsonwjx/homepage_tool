@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="homepage_tool" default="all">
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/SCCS/**"/>
+    <exclude name="**/RCS/**"/>
+    <exclude name="**/rcs/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/.pyc/**"/>
+    <exclude name="**/.pyo/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/*.lib/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/.bundle/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.ear"/>
+    <include name="*.apk"/>
+    <include name="*.zip"/>
+    <include name="*.swc"/>
+    <include name="*.ane"/>
+    <include name="*.egg"/>
+    <include name="*.jar"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+  </patternset>
+  
+  
+  <!-- Application Server Libraries -->
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${basedir}/../gui_lib"/>
+  <path id="javac2.classpath">
+    <pathelement location="${javac2.home}/javac2.jar"/>
+    <pathelement location="${javac2.home}/jdom.jar"/>
+    <pathelement location="${javac2.home}/asm-all.jar"/>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  
+  <!-- Module homepage_tool -->
+  
+  <dirname property="module.homepage_tool.basedir" file="${ant.file}"/>
+  
+  
+  
+  <property name="compiler.args.homepage_tool" value="-encoding UTF-8 -source 1.6 ${compiler.args}"/>
+  <property name="homepage_tool.output.dir" value="${module.homepage_tool.basedir}/../out/production/homepage_tool"/>
+  <property name="homepage_tool.testoutput.dir" value="${module.homepage_tool.basedir}/../out/test/homepage_tool"/>
+  
+  <path id="homepage_tool.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="homepage_tool.module.production.classpath"/>
+  
+  <path id="homepage_tool.runtime.production.module.classpath">
+    <pathelement location="${homepage_tool.output.dir}"/>
+  </path>
+  
+  <path id="homepage_tool.module.classpath">
+    <pathelement location="${homepage_tool.output.dir}"/>
+  </path>
+  
+  <path id="homepage_tool.runtime.module.classpath">
+    <pathelement location="${homepage_tool.testoutput.dir}"/>
+    <pathelement location="${homepage_tool.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.homepage_tool">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.homepage_tool">
+    <patternset refid="excluded.from.module.homepage_tool"/>
+  </patternset>
+  
+  <path id="homepage_tool.module.sourcepath">
+    <dirset dir="${module.homepage_tool.basedir}/..">
+      <include name="java"/>
+      <include name="resources"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.homepage_tool" depends="compile.module.homepage_tool.production,compile.module.homepage_tool.tests" description="Compile module homepage_tool"/>
+  
+  <target name="compile.module.homepage_tool.production" depends="register.custom.compilers" description="Compile module homepage_tool; production classes">
+    <mkdir dir="${homepage_tool.output.dir}"/>
+    <mkdir dir="${app.dir}"/>
+    <unzip dest="${homepage_tool.output.dir}">
+      <patternset>
+        <exclude name="**/*.RSA" />
+        <exclude name="**/*.SF" />
+        <exclude name="**/*.DSA" />
+        <exclude name="META-INF/MANIFEST.MF" />
+      </patternset>
+      <fileset dir="${basedir}\..\lib" includes="*.jar">
+      </fileset>
+    </unzip>
+    <javac2 destdir="${homepage_tool.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" encoding="UTF-8" fork="true" compiler="${complier}">
+      <compilerarg line="${compiler.args.homepage_tool}"/>
+      <bootclasspath refid="homepage_tool.module.bootclasspath"/>
+      <classpath refid="homepage_tool.module.production.classpath"/>
+      <src refid="homepage_tool.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.homepage_tool"/>
+    </javac2>
+    
+    <copy todir="${homepage_tool.output.dir}">
+      <fileset dir="${module.homepage_tool.basedir}/../java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.homepage_tool.basedir}/../resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+    <copy todir="${app.dir}/config">
+      <fileset dir="${homepage_tool.output.dir}/config"></fileset>
+    </copy>
+    <copy todir="${app.dir}">
+      <fileset dir="${module.homepage_tool.basedir}/..">
+        <include name="run.*"></include>
+      </fileset>
+    </copy>
+
+    <jar destfile="${app.dir}/${app.name}" basedir="${homepage_tool.output.dir}" excludes="config/**">
+      <manifest>
+        <!-- 此处需要根据需要进行修改 -->
+        <attribute name="Main-Class" value="com.youngfriend.AppForm"/>
+      </manifest>
+    </jar>
+  </target>
+  
+  <target name="compile.module.homepage_tool.tests" depends="register.custom.compilers,compile.module.homepage_tool.production" description="compile module homepage_tool; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.homepage_tool" description="cleanup module">
+    <delete dir="${homepage_tool.output.dir}"/>
+    <delete dir="${homepage_tool.testoutput.dir}"/>
+    <delete dir="${app.dir}"/>
+  </target>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+    <property name="app.name" value="${ant.project.name}.jar"></property>
+    <!--<property name="app.dir" value="d:\v6\output\tools\toolset\homepage_tool"></property>-->
+    <property name="app.dir" value="/Users/pandongyu/homepage_tool"></property>
+      <property name="complier" location="C:\Program Files\Java\jdk1.6.0_34\bin\javac" />
+  </target>
+  
+  <target name="clean" depends="clean.module.homepage_tool" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.homepage_tool" description="build all modules"/>
+  
+  <target name="all" depends="build.modules" description="build all"/>
+</project>

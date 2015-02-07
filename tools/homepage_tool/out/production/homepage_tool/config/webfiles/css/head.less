@@ -1,0 +1,94 @@
+@charset "utf-8";
+// 头部
+
+@import "variables";
+
+.header {
+  width: @mainWidth;
+  height: 126px;
+  margin: 0 auto 9px auto;
+}
+
+.logo {
+  width: @mainWidth;
+  height: 85px;
+}
+
+.logoTx {
+  width: 400px;
+  height: 75px;
+  float: left;
+  overflow-y: hidden;
+  margin-top: 10px;
+}
+
+@qqtxWidth : 500px;
+.qqtx1 {
+  width: @qqtxWidth;
+  height: 66px;
+  float: right;
+  padding-top: 19px;
+}
+
+.qqtxx {
+  width: @qqtxWidth;
+  height: 35px;
+  padding-top: 0;
+  span {
+    float: right;
+    margin-left: 6px;
+    width: 30px;
+
+    a {
+      width: 25px;
+      height: 25px;
+      display: block;
+      background: url(../images/pic.jpg) no-repeat -25px 0;
+      text-indent: -9999px;
+      overflow: hidden;
+    }
+
+    a.weibo {
+      background: url(../images/pic.jpg) no-repeat;
+    }
+  }
+}
+
+.qqtxxb {
+  width: @qqtxWidth;
+  height: 30px;
+  padding-top: 0;
+  text-align: right;
+}
+
+.nav {
+  width: @mainWidth;
+  height: 41px;
+  background: url(../images/nav.jpg) no-repeat;
+
+  > ul {
+    width: 728px;
+    margin: auto
+  }
+
+  li {
+    width: 104px;
+    height: 41px;
+    line-height: 39px;
+    font-size: 14px;
+    text-align: center;
+    float: left;
+    /*background: url(../images/pic.jpg) 102px -25px no-repeat;*/
+  }
+
+  li.none {
+    background: none;
+  }
+
+  li:hover a {
+    width: 104px;
+    height: 41px;
+    display: block;
+    background: url(../images/pic.jpg) no-repeat 0 -25px;
+  }
+}

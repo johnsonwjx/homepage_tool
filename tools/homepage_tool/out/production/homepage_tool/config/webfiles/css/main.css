@@ -1,0 +1,53 @@
+table {
+	width: 100%;
+	border: 0;
+}
+
+.hide {
+	display: none;
+}
+
+.title_zc {
+	height: 32px;
+	text-align: center;
+}
+
+input[name^="SUPPLIER_CONTACT2"]{
+	width: 95px;
+}
+
+input[name^="SUPPLIER_PRODUCT2"]{
+	width: 180px;
+}
+
+input[name^="SUPPLIER_SUCCESS2"]{
+	width: 75px;
+}
+
+input[name="SUPPLIER_PRODUCT2-PRODUCT_SORT_CODE"]{
+	width: 45px;
+}
+
+.notice {
+	text-align: center;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto
+}
+
+.number{
+	text-align: right;
+}
+
+.as-link{
+	cursor: pointer;
+}
+
+.as-link:HOVER{
+	color:#0f7bb7;
+	text-decoration: underline;
+}
+
+#zhuce-gongyingshang .operate-button {
+	cursor: pointer;
+}

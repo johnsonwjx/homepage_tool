@@ -1,0 +1,317 @@
+<!DOCTYPE">
+<html
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>文科园林</title>
+	<link href="css/style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!--头部 -->
+<!--头部 -->
+<div class="header">
+	<div class="logo">
+		<div class="logoTx">
+			<a href="index.jsp"><img src="images/head01.gif" alt="logo"/></a>
+		</div>
+		<div style="width:20%;float:left;margin-top: 20px;margin-left: 10px;line-height:18px;font-size:14px;font-family:'微软雅黑';color:#179D49;font-weight:bold;">
+			<div>风景园林专项设计甲级</div>
+			<div>国家城市园林绿化一级</div>
+		</div>
+		<div class="qqtx1">
+			<div class="qqtxxb">
+				<div><label style="font-size:14px;color:#179D49;font-weight:bold; font-family:'微软雅黑';">审计监察座机：0755-36992085</label></div>
+				<div><label style="font-size:14px;color:#179D49;font-weight:bold; font-family:'微软雅黑';">审计监察手机：138 2370 3638</label></div>
+				<div><label style="font-size:14px;color:#179D49;font-weight:bold; font-family:'微软雅黑';">审计监察邮箱：2501076@qq.com</label></div>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="nav">
+		<div>
+			<ul>
+				<li><a href="index.jsp" class="white">首 页</a></li>
+				<li><a href="news.jsp?newsType=10" class="white">公司新闻</a></li>
+				<li><a href="news.jsp?newsType=20" class="white">业界资讯</a></li>
+				<li><a href="news.jsp?newsType=30" class="white">公司公告</a></li>
+				<li><a href="news.jsp?newsType=40" class="white">党团工会</a></li>
+				<li><a href="news.jsp?newsType=50" class="white">问卷调查</a></li>
+				<li><a href="news.jsp?newsType=60" class="white">期刊管理</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div id="adv" style="width: 1000px; margin: auto auto 0px;">
+	<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+	        codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,11" width="1000">
+		<param name="movie" value="images/banner.swf"/>
+		<param name="quality" value="high"/>
+		<param name="wmode" value="transparent"/>
+		<embed src="images/banner.swf" width="1000" quality="high"
+		       pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"
+		       wmode="transparent"></embed>
+	</object>
+</div>
+
+
+
+<div id="divMenu"><img src="images/qrcode.png" alt="V6安卓客户端" style="width: 130px;height: 130px"><br><span>扫一扫&nbsp;&nbsp;下载V6安卓客户端</span></div>
+
+</div>
+
+<!--中间内容区 -->
+
+<div class="main">
+
+	<div class="mainLeft">
+		<div class="login">
+
+			<h5>
+
+				<span id="welcome" style="margin-left:40px;margin-top:7px;font-size:13px;font-family:'微软雅黑';text-align: left; float: left;"></span>
+
+				<a href="javascript:void(0);" onclick="closeWindow();" style="margin-right:5px;margin-top:7px;text-align: right; float: right;">
+
+					<img src="images/logout.png" alt="" style="width: 90px;height: 24px"/>
+
+				</a>
+
+			</h5>
+
+			<div class="loginTx">
+
+				<div>
+
+					<a href="javascript:void(0)" onclick='windowopen("/v6engine/loadMain.do?action=work")' style="color: #ffffff;cursor:auto;">
+
+						<span class="btn_1"></span>
+
+					</a>
+
+				</div>
+
+				<div>
+
+					<a href="javascript:void(0)" onclick='openWindow("/v6engine/system/workpub2/jsp/workPubMain.do?action=formload&flowData=,00004501;4028805042030cc901420411e48f4c17,00004501,,S,&propValue=moduleid%253Dff808181406ff1850140768209600337&taskID=&formMode=0&taskType=null&otherParam=&workData=&deptrandom=0&rs=0&mt=0","1")' style="color: #ffffff;cursor:auto;">
+
+						<span class="btn_2"></span>
+
+					</a>
+
+				</div>
+
+				<div>
+
+					<a href="javascript:void(0)" onclick='openWindow("/v6engine/system/workpub2/jsp/workPubMain.do?action=formload&flowData=,00004501;402880503b82ef60013babd42df4068d,00004501,,S,&propValue=moduleid%253Dff8081813599d6bd0135a038a968718b&taskID=&formMode=0&taskType=null&otherParam=&workData=&deptrandom=0&rs=0&mt=0","2")' style="color: #ffffff;cursor:auto;">
+
+						<span class="btn_3"></span>
+
+					</a>
+
+				</div>
+
+				<div>
+
+					<a href="javascript:void(0)" onclick='openWindow("/v6engine/business/storemanager/customquery2/jsp/customQuery.do?action=load&flowData=,40029002;4028805042bd48c40142d735a97705e3,40029002,,S,&propValue=conditionStyleID=ff808181408649a401408f26a2907773;resultStyleID=ff808181408649a401408f286ac57790&taskID=&formMode=0&taskType=null&otherParam=&workData=&deptrandom=0&rs=0&mt=0","3")' style="color: #ffffff;cursor:auto;">
+
+						<span class="btn_4"></span>
+
+					</a>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		
+
+		<div th:each="${index.left}" class="tongzhi">
+
+			<h5 title="重要通知">重要通知</h5>
+
+
+
+			<div class="tzTx" id="00"></div>
+
+		</div>
+
+
+
+
+	</div>
+
+	<div class="mainRight">
+
+		<div class="newsBox">
+
+			<div class="over">
+
+				<div class="news">
+
+					<div class="news-title">
+
+						<div><label class="green large">公司公告</label><a href="news.jsp?newsType=30"
+
+						                                               class="green more">更多>></a></div>
+
+						<div class="hr"><span class="hr-hightlight"></span><span class="hr-gray"></span></div>
+
+					</div>
+
+					<div class="zonghezixunTx" id="30">
+
+					</div>
+
+				</div>
+
+				<div class="news">
+
+					<div class="news-title">
+
+						<div><label class="green large">公司新闻</label><a href="news.jsp?newsType=10"
+
+						                                               class="green more">更多>></a></div>
+
+						<div class="hr"><span class="hr-hightlight"></span><span class="hr-gray"></span></div>
+
+					</div>
+
+					<div class="zonghezixunTx" id="10">
+
+					</div>
+
+				</div>				
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div>
+
+		<div class="newsBox">
+
+			<div class="over">
+
+				<div class="news">
+
+					<div class="news-title">
+
+						<div><label class="green large">业界资讯</label><a href="news.jsp?newsType=20"
+
+						                                               class="green more">更多>></a></div>
+
+						<div class="hr"><span class="hr-hightlight"></span><span class="hr-gray"></span></div>
+
+					</div>
+
+					<div class="zonghezixunTx" id="20">
+
+					</div>
+
+				</div>
+
+				<div class="news">
+
+					<div class="news-title">
+
+						<div><label class="green large">党团工会</label><a href="news.jsp?newsType=40"
+
+						                                               class="green more">更多>></a></div>
+
+						<div class="hr"><span class="hr-hightlight"></span><span class="hr-gray"></span></div>
+
+					</div>
+
+					<div class="zonghezixunTx" id="40">
+
+					</div>
+
+				</div>				
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div>
+
+		<div class="newsBox">
+
+			<div class="over">
+
+				<div class="news">
+
+					<div class="news-title">
+
+						<div><label class="green large">文科培训</label><a href="news.jsp?newsType=70"
+
+						                                               class="green more">更多>></a></div>
+
+						<div class="hr"><span class="hr-hightlight"></span><span class="hr-gray"></span></div>
+
+					</div>
+
+					<div class="zonghezixunTx" id="70">
+
+					</div>
+
+				</div>
+
+				<div class="news">
+
+					<div class="news-title">
+
+						<div><label class="green large">期刊管理</label><a href="news.jsp?newsType=60"
+
+						                                               class="green more">更多>></a></div>
+
+						<div class="hr"><span class="hr-hightlight"></span><span class="hr-gray"></span></div>
+
+					</div>
+
+					<div class="zonghezixunTx" id="60">
+
+					</div>
+
+				</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div>
+	</div>
+
+	<div class="clear"></div>
+
+</div>
+
+
+<div class="foot">
+	<div class="container" style="width:700px; margin:auto;">
+		<div>
+		<div class="weixin" style="float: left; margin-right: 5px">
+			<img src="images/wkyl_weixin.jpg" alt="微信" style="width: 70px;height: 70px"/>
+		</div>
+		<div class="address" style="width:55%;float: left;text-align: left;font-family:'微软雅黑';font-size: 13px;">
+			<p>公司地址： 广东省深圳市福田区滨河大道中央西谷大厦21层</p>
+			<div>
+				<span>公司网站：<a href="javascript:void(0);" onclick="window.open('http://www.wkyy.com')"> www.wkyy.com</a></span>
+				<span>设计院网站：<a	href="javascript:void(0);" onclick="window.open('http://www.wksjy.com')">www.wksjy.com</a></span>
+			</div>
+			<p>版权所有： 深圳文科园林股份有限公司</p>
+		</div>
+		<div class="address" style="width:26%;float: left;text-align: left;font-family:'微软雅黑';font-size: 13px;">
+			<span>总机号码： 0755-36990098</span>
+			</br>
+			<span>传真号码： 0755-83148398</span>
+			</br>
+			<span>客服电话： 400 698 1038</span>
+		</div>
+		<div style="clear: both;"></div>
+		</div>
+	</div>
+</div>
+</body>
+
+</html>
+
