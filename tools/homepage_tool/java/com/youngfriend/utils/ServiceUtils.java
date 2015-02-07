@@ -1,0 +1,52 @@
+package com.youngfriend.utils;
+
+import com.youngfriend.views.grouptree.GroupBean;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+import org.dom4j.Document;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
+import youngfriend.common.util.net.ServiceInvokerUtil;
+
+import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.List;
+
+/**
+ * Created by pandongyu on 15/1/7.
+ */
+public class ServiceUtils {
+    private final static Logger logger= LogManager.getLogger(ServiceUtils.class) ;
+    private static String weburl = "";
+    public static List<GroupBean> getUserGroup(String url) {
+        if (!weburl.equals(url)) {
+            try {
+                V6LoginUtil.iniRuntimeEnv(false, url);
+            } catch (Exception e) {
+                logger.error(e.getMessage(),e);
+                CommUtils.showMsg(null, "无法连接web地址");
+                throw new RuntimeException(e);
+            }
+            weburl = url;
+        }
+        try {
+            Hashtable<String,String> in = new Hashtable();
+            in.put("service", "usermanager.group.read");
+            in.put("XML", "<userGroup><group><id></id><name></name><groupdesc></groupdesc></group></userGroup>");
+            in = ServiceInvokerUtil.invoker(in);
+            String xml = in.get("XML");
+            Document doc = DocumentHelper.parseText(xml);
+            List<Element>eles=doc.getRootElement().elements("group") ;
+            List<GroupBean> groups = new ArrayList<GroupBean>();
+            for(Element e:eles){
+                groups.add(new GroupBean(e.elementText("id"),e.elementText("code"),e.elementText("name"))) ;
+            }
+            return groups;
+        } catch (Exception e) {
+            CommUtils.showMsg(null, e.getMessage());
+         logger.error(e.getMessage(),e);
+            throw new RuntimeException(e);
+        }
+
+    }
+}
